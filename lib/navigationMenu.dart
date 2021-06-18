@@ -13,22 +13,27 @@ class menu extends StatelessWidget {
               children: [
                 const SizedBox(height: 15),
                 ListTile(
+                  leading: Icon(Icons.fastfood),
                   title: Text('Mahlzeit erfassen'),
                 ),
                 const SizedBox(height: 15),
                 ListTile(
+                  leading: Icon(Icons.fastfood),
                   title: Text('Erfasste Mahlzeiten'),
                 ),
                 const SizedBox(height: 15),
                 ListTile(
+                  leading: Icon(Icons.air),
                   title: Text('Symptome erfassen'),
                 ),
                 const SizedBox(height: 15),
                 ListTile(
+                  leading: Icon(Icons.show_chart),
                   title: Text('Unverträglichkeiten'),
                 ),
                 const SizedBox(height: 15),
                 ListTile(
+                  leading: Icon(Icons.format_list_bulleted),
                   title: Text('Infos'),
                 ),
               ],
