@@ -24,7 +24,7 @@ class MyHomePage extends StatefulWidget{
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
-    drawer: menu(),
+    endDrawer: menu(),
     appBar: AppBar(
       title: Text('Hauptmenü'),
     ),
