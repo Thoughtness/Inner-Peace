@@ -7,6 +7,7 @@ class infos extends StatelessWidget{
     endDrawer: menu(),
     appBar: AppBar(
       title: Text('Infos'),
+      backgroundColor: Colors.cyanAccent,
     ),
   );
 }

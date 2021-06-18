@@ -7,6 +7,7 @@ class symptomeErfassen extends StatelessWidget{
     endDrawer: menu(),
     appBar: AppBar(
       title: Text('Symptome erfassen'),
+      backgroundColor: Colors.cyanAccent,
     ),
   );
 }

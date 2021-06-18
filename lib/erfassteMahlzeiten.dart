@@ -7,6 +7,7 @@ class erfassteMahlzeiten extends StatelessWidget{
     endDrawer: menu(),
     appBar: AppBar(
       title: Text('Erfasste Mahlzeiten'),
+      backgroundColor: Colors.cyanAccent,
     ),
   );
 }

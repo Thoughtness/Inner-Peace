@@ -7,6 +7,7 @@ class unvertraeglichkeiten extends StatelessWidget{
     endDrawer: menu(),
     appBar: AppBar(
       title: Text('Unverträglichkeiten'),
+      backgroundColor: Colors.cyanAccent,
     ),
   );
 }

@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
     endDrawer: menu(),
     appBar: AppBar(
       title: Text('Hauptmenü'),
+      backgroundColor: Colors.cyanAccent,
     ),
   );
 }
