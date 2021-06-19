@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:inner_peace/symptomeErfassen.dart';
 import 'package:inner_peace/main.dart';
 
-
 class guiMahlzeitErfassen extends StatelessWidget {
   String titel = "";
   String zutaten = "";
@@ -28,8 +27,9 @@ class guiMahlzeitErfassen extends StatelessWidget {
                   flex: 20,
                   child: Container(
                       decoration: myBoxDecoration(),
-                      width: 10000, //gross machen das die Breite genug gross ist damit flex greift
-                      height: 49,
+                      width:
+                          10000, //gross machen das die Breite genug gross ist damit flex greift
+                      height: 100,
                       child: insertTitle(text: titel)),
                 ),
                 const SizedBox(width: 10),
@@ -38,10 +38,9 @@ class guiMahlzeitErfassen extends StatelessWidget {
                   child: Container(
                     height: 49,
                     child: TextField(
-                      decoration:
-                          InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: ' Gericht hier benennen'),
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: ' Gericht hier benennen'),
                     ),
                   ),
                 ),
@@ -58,7 +57,8 @@ class guiMahlzeitErfassen extends StatelessWidget {
                   flex: 2,
                   child: Container(
                       decoration: myBoxDecoration(),
-                      width: 10000, //gross machen das die Breite genug gross ist damit flex greift
+                      width:
+                          10000, //gross machen das die Breite genug gross ist damit flex greift
                       height: 49,
                       child: insertTitle(text: zutaten)),
                 ),
@@ -78,12 +78,7 @@ class guiMahlzeitErfassen extends StatelessWidget {
               ],
             ),
           ),
-          Row(//dient nur dazu einen Abstand zwischen die Rows zu kriegen
-              children: <Widget>[
-            Container(
-              height: 10,
-            ),
-          ]),
+          const SizedBox(width: 10),
           Flexible(
             child: Row(
               children: <Widget>[
@@ -92,59 +87,39 @@ class guiMahlzeitErfassen extends StatelessWidget {
                   flex: 20,
                   child: Column(
                     children: <Widget>[
-                      ElevatedButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.cyanAccent,
-                          minimumSize: Size(200, 45),
-                          primary: Colors.black,
-                          onSurface: Colors.red,
+                      buttonBasic(
+                        text: 'Mahlzeit speichern',
+                        onClick: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            //toDo save inputs
+                            builder: (context) => symptomeErfassen(),
+                          ),
                         ),
-                        child: Text('Symptome hinzufügen'),
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              //toDo save inputs
-                              builder: (context) => symptomeErfassen(),
-                            ),
-                          );
-                        },
-                      )
+                      ),
                     ],
                   ),
                 ),
-                Flexible( //dient nur dazu einen Abstand zwischen die Buttons zu kriegen
-                  flex: 1,
-                  child: Container(
-                  ),
-                ),
-                Flexible(
-                  flex: 20,
-                  child: Column(
-                    children: <Widget>[
-                      ElevatedButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.cyanAccent,
-                          minimumSize: Size(200, 45),
-                          primary: Colors.black,
-                          onSurface: Colors.red,
-                        ),
-                        child: Text('Mahlzeit speichern'),
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              //toDo change to Hauptmenü and save inputs
-                              builder: (context) => symptomeErfassen(),
-                            ),
-                          );
-                        },
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 10),
               ],
             ),
           ),
+          const SizedBox(width: 10),
+          Flexible(
+            flex: 20,
+            child: Column(
+              children: <Widget>[
+                buttonBasic(
+                  text: 'Mahlzeit speichern',
+                  onClick: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      //toDo change to Hauptmenü and save inputs
+                      builder: (context) => symptomeErfassen(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 10),
         ],
       ),
     );
@@ -159,23 +134,25 @@ class guiMahlzeitErfassen extends StatelessWidget {
   }
 
   Widget buttonBasic({
-    required VoidCallback onPressed,
+    required VoidCallback onClick,
     required text,
-  }){
-    return  ElevatedButton(
-        onPressed: onPressed,
-        child: text,
+  }) {
+    return ElevatedButton(
+      onPressed: onClick,
+      child: Text(text),
+      style: TextButton.styleFrom(
+        backgroundColor: Colors.cyanAccent,
+        //minimumSize: Size(200, 45),
+        primary: Colors.black,
+      ),
     );
   }
 }
 
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
-    border: Border.all(
-        width: 1.0
-    ),
-    borderRadius: BorderRadius.all(
-        Radius.circular(5.0) //
-    ),
+    border: Border.all(width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(5.0) //
+        ),
   );
 }
