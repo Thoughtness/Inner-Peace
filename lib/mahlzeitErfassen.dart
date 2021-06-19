@@ -11,6 +11,6 @@ class mahlzeitErfassen extends StatelessWidget {
         title: Text('Mahlzeit erfassen'),
         backgroundColor: Colors.cyanAccent,
       ),
-      body: guiPresets("Gericht"),
+      body: guiMahlzeitErfassen("Gericht", "Zutaten", "Symptome"),
   );
 }
