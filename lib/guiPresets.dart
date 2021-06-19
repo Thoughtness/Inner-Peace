@@ -28,7 +28,8 @@ class guiMahlzeitErfassen extends StatelessWidget {
                   child: Container(
                       decoration: myBoxDecoration(),
                       width:
-                          10000, //gross machen das die Breite genug gross ist damit flex greift
+                      10000,
+                      //gross machen das die Breite genug gross ist damit flex greift
                       height: 100,
                       child: insertTitle(text: titel)),
                 ),
@@ -58,7 +59,8 @@ class guiMahlzeitErfassen extends StatelessWidget {
                   child: Container(
                       decoration: myBoxDecoration(),
                       width:
-                          10000, //gross machen das die Breite genug gross ist damit flex greift
+                      10000,
+                      //gross machen das die Breite genug gross ist damit flex greift
                       height: 49,
                       child: insertTitle(text: zutaten)),
                 ),
@@ -89,12 +91,13 @@ class guiMahlzeitErfassen extends StatelessWidget {
                     children: <Widget>[
                       buttonBasic(
                         text: 'Mahlzeit speichern',
-                        onClick: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            //toDo save inputs
-                            builder: (context) => symptomeErfassen(),
-                          ),
-                        ),
+                        onClick: () =>
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                //toDo save inputs
+                                builder: (context) => symptomeErfassen(),
+                              ),
+                            ),
                       ),
                     ],
                   ),
@@ -109,12 +112,13 @@ class guiMahlzeitErfassen extends StatelessWidget {
               children: <Widget>[
                 buttonBasic(
                   text: 'Mahlzeit speichern',
-                  onClick: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      //toDo change to Hauptmenü and save inputs
-                      builder: (context) => symptomeErfassen(),
-                    ),
-                  ),
+                  onClick: () =>
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          //toDo change to Hauptmenü and save inputs
+                          builder: (context) => symptomeErfassen(),
+                        ),
+                      ),
                 ),
               ],
             ),
@@ -147,12 +151,12 @@ class guiMahlzeitErfassen extends StatelessWidget {
       ),
     );
   }
-}
 
-BoxDecoration myBoxDecoration() {
-  return BoxDecoration(
-    border: Border.all(width: 1.0),
-    borderRadius: BorderRadius.all(Radius.circular(5.0) //
-        ),
-  );
+  BoxDecoration myBoxDecoration() {
+    return BoxDecoration(
+      border: Border.all(width: 1.0),
+      borderRadius: BorderRadius.all(Radius.circular(5.0) //
+      ),
+    );
+  }
 }
