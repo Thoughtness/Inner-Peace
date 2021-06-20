@@ -6,7 +6,11 @@ class unvertraeglichkeiten extends StatelessWidget{
   Widget build(BuildContext context) => Scaffold(
     endDrawer: menu(),
     appBar: AppBar(
-      title: Text('Unverträglichkeiten'),
+      title: Text('Unverträglichkeiten',
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
       backgroundColor: Colors.cyanAccent,
     ),
   );

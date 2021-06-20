@@ -6,7 +6,11 @@ class infos extends StatelessWidget{
   Widget build(BuildContext context) => Scaffold(
     endDrawer: menu(),
     appBar: AppBar(
-      title: Text('Infos'),
+      title: Text('Infos',
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
       backgroundColor: Colors.cyanAccent,
     ),
   );
