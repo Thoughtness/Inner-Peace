@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:inner_peace/navigationMenu.dart';
-import 'package:inner_peace/mahlzeitErfassenBody.dart';
+import 'package:inner_peace/guiElements.dart';
+import 'package:inner_peace/symptomeErfassen.dart';
 
-class mahlzeitErfassen extends StatelessWidget {
+class mahlzeitErfassen extends StatelessWidget{
+
+  String zutaten = "";
+  String symptome = "";
+  double width = 10.0;
+  double height = 20;
+
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.teal[100],
@@ -15,6 +22,60 @@ class mahlzeitErfassen extends StatelessWidget {
           ),
           backgroundColor: Colors.cyanAccent,
         ),
-        body: mahlzeitErfassenBody("Zutaten", "Symptome"),
-      );
+        body: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(height: height),
+              customRow(
+                title: 'Gericht',
+                description: 'Gericht hier benennen',
+              ),
+              SizedBox(height: height),
+              customRow(
+                title: 'Zutaten',
+                description: 'Zutaten mit Komma trennen',
+              ),
+              Flexible(
+                child: Row(
+                  children: <Widget>[
+                    const SizedBox(width: 10),
+                    Flexible(
+                      flex: 20,
+                      child: customButton(
+                        text: 'Symptome hinzufügen',
+                        onClick: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              //toDo save inputs
+                              builder: (context) => symptomeErfassen(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(width: width),
+                    Flexible(
+                      flex: 20,
+                      child: customButton(
+                        text: 'Mahlzeit speichern',
+                        onClick: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              //toDo save inputs
+                              builder: (context) => symptomeErfassen(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(width: width),
+                  ],
+                ),
+              ),
+              SizedBox(height: height),
+            ],
+          ),
+        ),
+  );
 }
