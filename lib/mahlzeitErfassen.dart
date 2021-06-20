@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inner_peace/navigationMenu.dart';
-import 'package:inner_peace/erfassteMahlzeitenBody.dart';
+import 'package:inner_peace/mahlzeitErfassenBody.dart';
 
 class mahlzeitErfassen extends StatelessWidget {
   @override
@@ -15,6 +15,6 @@ class mahlzeitErfassen extends StatelessWidget {
           ),
           backgroundColor: Colors.cyanAccent,
         ),
-        body: erfassteMahlzeitenBody("Gericht", "Zutaten", "Symptome"),
+        body: mahlzeitErfassenBody("Zutaten", "Symptome"),
       );
 }
