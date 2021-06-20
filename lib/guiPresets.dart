@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:inner_peace/symptomeErfassen.dart';
 import 'package:inner_peace/main.dart';
 
-
 class guiMahlzeitErfassen extends StatelessWidget {
   String titel = "";
   String zutaten = "";
   String symptome = "";
   double width = 10.0;
-  double height = 15;
+  double height = 20;
 
   guiMahlzeitErfassen(String titel, String zutaten, String symptome) {
     this.titel = titel;
@@ -20,71 +19,67 @@ class guiMahlzeitErfassen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(height: height),
-          Flexible(
-            child: Row(
-              children: <Widget>[
-                SizedBox(width: width),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                      decoration: myBoxDecoration(),
-                      width: 10000, //gross machen das die Breite genug gross ist damit flex greift
-                      height: 49,
+          Row(
+            children: <Widget>[
+              SizedBox(width: width),
+              Flexible(
+                flex: 1,
+                child: Container(
+                  decoration: myBoxDecoration(),
+                  height: 49,
+                  child: Align(
+                      alignment: Alignment.bottomRight,
                       child: insertTitle(text: titel)),
                 ),
-                SizedBox(width: width),
-                Flexible(
-                  flex: 3,
-                  child: Container(
-                    height: 49,
-                    child: TextField(
-                      decoration:
-                          InputDecoration(
-                              fillColor: Colors.white,
-                              filled: true,
-                              border: OutlineInputBorder(),
-                              hintText: ' Gericht hier benennen'),
-                    ),
+              ),
+              SizedBox(width: width),
+              Flexible(
+                flex: 3,
+                child: Container(
+                  height: 49,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(),
+                        hintText: ' Gericht hier benennen'),
                   ),
                 ),
-                SizedBox(width: width),
-              ],
-            ),
+              ),
+              SizedBox(width: width),
+            ],
           ),
           SizedBox(height: height),
-          Flexible(
-            child: Row(
-              children: <Widget>[
-                SizedBox(width: width),
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                      decoration: myBoxDecoration(),
-                      width: 10000, //gross machen das die Breite genug gross ist damit flex greift
-                      height: 49,
-                      child: insertTitle(text: zutaten)),
-                ),
-                SizedBox(width: width),
-                Flexible(
-                  flex: 3,
-                  child: Container(
+          Row(
+            children: <Widget>[
+              SizedBox(width: width),
+              Flexible(
+                flex: 1,
+                child: Container(
+                    decoration: myBoxDecoration(),
                     height: 49,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          border: OutlineInputBorder(),
-                          hintText: ' Zutaten mit Komma trennen'),
-                    ),
+                    child: insertTitle(text: zutaten)),
+              ),
+              SizedBox(width: width),
+              Flexible(
+                flex: 3,
+                child: Container(
+                  height: 49,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(),
+                        hintText: ' Zutaten mit Komma trennen'),
                   ),
                 ),
-                SizedBox(width: width),
-              ],
-            ),
+              ),
+              SizedBox(width: width),
+            ],
           ),
-          SizedBox(height: height),
           Flexible(
             child: Row(
               children: <Widget>[
@@ -92,6 +87,7 @@ class guiMahlzeitErfassen extends StatelessWidget {
                 Flexible(
                   flex: 20,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       buttonBasic(
                         text: 'Symptome hinzufügen',
@@ -111,6 +107,7 @@ class guiMahlzeitErfassen extends StatelessWidget {
                 Flexible(
                   flex: 20,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       buttonBasic(
                         text: 'Mahlzeit speichern',
@@ -130,6 +127,7 @@ class guiMahlzeitErfassen extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: height),
         ],
       ),
     );
@@ -139,21 +137,21 @@ class guiMahlzeitErfassen extends StatelessWidget {
     required String text,
   }) {
     return ListTile(
-      title: Text(text),
+      title: Text(text, textAlign: TextAlign.left),
     );
   }
 
   Widget buttonBasic({
     required VoidCallback onClick,
     required String text,
-  }){
-    return  ElevatedButton(
-        onPressed: onClick,
-        child: Text(text),
-        style: TextButton.styleFrom(
-          backgroundColor: Colors.cyanAccent,
-          minimumSize: Size(200, 45),
-          primary: Colors.black,
+  }) {
+    return ElevatedButton(
+      onPressed: onClick,
+      child: Text(text),
+      style: TextButton.styleFrom(
+        backgroundColor: Colors.cyanAccent,
+        minimumSize: Size(200, 45),
+        primary: Colors.black,
       ),
     );
   }
@@ -162,11 +160,8 @@ class guiMahlzeitErfassen extends StatelessWidget {
 BoxDecoration myBoxDecoration() {
   return BoxDecoration(
     color: Colors.grey,
-    border: Border.all(
-        width: 1.0
-    ),
-    borderRadius: BorderRadius.all(
-        Radius.circular(5.0) //
-    ),
+    border: Border.all(width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(5.0) //
+        ),
   );
 }
