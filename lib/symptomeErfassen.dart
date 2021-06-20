@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inner_peace/navigationMenu.dart';
+import 'package:inner_peace/symptomeErfassenBody.dart';
 
 class symptomeErfassen extends StatelessWidget {
   @override
@@ -13,5 +14,6 @@ class symptomeErfassen extends StatelessWidget {
           ),
           backgroundColor: Colors.cyanAccent,
         ),
+    body: symptomeErfassenBody(),
       );
 }

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:inner_peace/symptomeErfassen.dart';
-import 'package:inner_peace/main.dart';
 
-class guiMahlzeitErfassen extends StatelessWidget {
+class erfassteMahlzeitenBody extends StatelessWidget {
   String titel = "";
   String zutaten = "";
   String symptome = "";
   double width = 10.0;
   double height = 20;
 
-  guiMahlzeitErfassen(String titel, String zutaten, String symptome) {
+  erfassteMahlzeitenBody(String titel, String zutaten, String symptome) {
     this.titel = titel;
     this.zutaten = zutaten;
     this.symptome = symptome;
@@ -29,7 +28,7 @@ class guiMahlzeitErfassen extends StatelessWidget {
                 flex: 1,
                 child: Container(
                   decoration: myBoxDecoration(),
-                  height: 49,
+                  //height: 49,
                   child: Align(
                       alignment: Alignment.bottomRight,
                       child: insertTitle(text: titel)),
@@ -39,7 +38,7 @@ class guiMahlzeitErfassen extends StatelessWidget {
               Flexible(
                 flex: 3,
                 child: Container(
-                  height: 49,
+                  height: 58,
                   child: TextField(
                     decoration: InputDecoration(
                         fillColor: Colors.white,
@@ -60,14 +59,14 @@ class guiMahlzeitErfassen extends StatelessWidget {
                 flex: 1,
                 child: Container(
                     decoration: myBoxDecoration(),
-                    height: 49,
+                    //height: 49,
                     child: insertTitle(text: zutaten)),
               ),
               SizedBox(width: width),
               Flexible(
                 flex: 3,
                 child: Container(
-                  height: 49,
+                  height: 58,
                   child: TextField(
                     decoration: InputDecoration(
                         fillColor: Colors.white,
