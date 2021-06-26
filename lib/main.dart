@@ -39,7 +39,7 @@ void main() async {
           id: maps[i]['id'],
           gericht: maps[i]['gericht'],
           zutaten: maps[i]['zutaten'],
-          symptomeTotal: maps[i]['symptome']
+          //symptomeTotal: maps[i]['symptome']
       );
     });
   }
@@ -48,10 +48,10 @@ void main() async {
   Future<void> updateMeal(mealData meal) async {
     final db = await database;
     await db.update(
-      'dogs',
+      'meal',
       meal.toMap(),
       where: 'id = ?',
-      whereArgs: [meal.id],
+      whereArgs: [meal.gericht],
     );
   }
 
@@ -82,6 +82,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  //
+  //   DatabaseHelper.instance.queryAllRows().then((value) {
+  //     setState(() {
+  //       value.forEach((element) {
+  //         taskList.add(mealData(id: element['id'], gericht: element['gericht'], zutaten: element['zutaten'], symptomeTotal: element['symptome']));
+  //       });
+  //     });
+  //   }).catchError((error) {
+  //     print(error);
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) => Scaffold(
         endDrawer: menu(),

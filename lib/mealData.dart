@@ -1,14 +1,14 @@
 class mealData{
   int id;
   String gericht;
-  int zutaten;
-  int symptomeTotal;
+  String zutaten;
+  //int symptomeTotal;
 
   mealData({
     required this.id,
     required this.gericht,
     required this.zutaten,
-    required this.symptomeTotal,
+    //required this.symptomeTotal,
   });
 
   Map<String, dynamic> toMap() {
@@ -16,12 +16,12 @@ class mealData{
       'id' : id,
       'gericht': gericht,
       'zutaten': zutaten,
-      'symptome': symptomeTotal,
+      //'symptome': symptomeTotal,
     };
   }
 
   @override
   String toString() {
-    return 'Mahlzeit{id: $id, gericht: $gericht, zutaten: $zutaten, symptome: $symptomeTotal}';
+    return 'Mahlzeit{id: $id, gericht: $gericht, zutaten: $zutaten}';//symptome: $symptomeTotal
   }
 }

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 class customRow extends StatelessWidget {
+  final textController;
   String description = "";
   String title = "";
+
 
   customRow({
     required this.title,
     required this.description,
+    required this.textController,
   });
 
   @override
@@ -43,6 +46,7 @@ class customRow extends StatelessWidget {
                   filled: true,
                   border: OutlineInputBorder(),
                   hintText: description),
+              //controller: textController,
             ),
           ),
         ),
