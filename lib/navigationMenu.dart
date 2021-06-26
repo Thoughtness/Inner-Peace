@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:inner_peace/erfassteMahlzeiten.dart';
+import 'package:inner_peace/recordedMeals.dart';
 import 'package:inner_peace/infos.dart';
-import 'package:inner_peace/mahlzeitErfassen.dart';
-import 'package:inner_peace/symptomeErfassen.dart';
-import 'package:inner_peace/unvertraeglichkeiten.dart';
+import 'package:inner_peace/recordMeal.dart';
+import 'package:inner_peace/recordedSymptoms.dart';
+import 'package:inner_peace/intolerances.dart';
 
 class menu extends StatelessWidget {
   @override
@@ -22,7 +22,7 @@ class menu extends StatelessWidget {
                   title: Text('Mahlzeit erfassen'),
                   onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => mahlzeitErfassen(),
+                      builder: (context) => recordMeal(),
                     ));
                   }
                 ),

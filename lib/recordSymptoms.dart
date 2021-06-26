@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class symptomeErfassenBody extends StatefulWidget{
+class recordSymptoms extends StatefulWidget{
   @override
-  _symptomeErfassenBody createState(){
-    return _symptomeErfassenBody();
+  _recordSymptoms createState(){
+    return _recordSymptoms();
   }
 }
 
 
-class _symptomeErfassenBody extends State{
+class _recordSymptoms extends State{
   @override
   Widget build(BuildContext context) {
     double value = 10.0;

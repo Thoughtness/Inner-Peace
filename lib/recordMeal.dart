@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:inner_peace/main.dart';
 import 'package:inner_peace/navigationMenu.dart';
 import 'package:inner_peace/guiElements.dart';
-import 'package:inner_peace/symptomeErfassen.dart';
+import 'package:inner_peace/recordedSymptoms.dart';
 
-class mahlzeitErfassen extends StatelessWidget{
+class recordMeal extends StatelessWidget{
 
-  String zutaten = "";
-  String symptome = "";
+  String ingredients = "";
+  String symptoms = "";
   double width = 10.0;
   double height = 20;
 
