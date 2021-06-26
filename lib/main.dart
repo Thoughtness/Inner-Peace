@@ -1,8 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:inner_peace/navigationMenu.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:inner_peace/mahlzeitData.dart';
 
-void main() {
+void main() async{
   runApp(MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  final database = openDatabase(
+    join(await getDatabasesPath(), 'innerPeace.db'),
+  );
+  onCreate: (db, version) {
+    return db.execute('CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER)',
+  );
+    version: 1,
+    );
+  },
+
+
+  Map<String, dynamic> toMap() {
+  return {
+  'gericht': gericht,
+  'zutaten': zutaten,
+  'symptome': symptomeTotal,
+  };
+  }
+
+  @override
+  String toString() {
+  return 'Mahlzeit{gericht: $gericht, zutaten: $zutaten, symptome: $symptomeTotal}';
+  }
+
 }
 
 class MyApp extends StatelessWidget {

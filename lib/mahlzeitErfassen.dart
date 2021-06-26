@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inner_peace/main.dart';
 import 'package:inner_peace/navigationMenu.dart';
 import 'package:inner_peace/guiElements.dart';
 import 'package:inner_peace/symptomeErfassen.dart';
@@ -63,7 +64,7 @@ class mahlzeitErfassen extends StatelessWidget{
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               //toDo save inputs
-                              builder: (context) => symptomeErfassen(),
+                              builder: (context) => MyApp(),
                             ),
                           );
                         },
