@@ -1,64 +1,61 @@
 // import 'dart:async';
-// import 'dart:io' as io;
 // import 'package:path/path.dart';
 // import 'package:sqflite/sqflite.dart';
-// import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
+// import 'mealData.dart';
 //
 //
-// class DBHelper {
-//   static Database? _db;
+// // ignore: camel_case_types
+// class dbHelper{
+//   static final _databaseName = "innerPeace.db";
+//   static final _databaseVersion = 1;
 //
-//   Future<Database> get db async =>
-//     _db ??= await initDb();
+//   static final table = 'recordMeal';
+//
+//   static final columnId = 'id';
+//   static final columnTitle = 'title';
+//
+//   dbHelper._privateConstructor();
+//   static final dbHelper instance = dbHelper._privateConstructor();
+//
+//   static Database? _database;
+//   Future<Database> get database async =>
+//       _database ??= await _initDatabase();
+//
+//   Future<Database> _initDatabase() async {
+//     String path = join(await getDatabasesPath(), _databaseName);
+//     return await openDatabase(path,
+//         version: _databaseVersion, onCreate: _onCreate);
 //   }
 //
-//   initDb() async {
-//     io.Directory documentsDirectory = WidgetsFlutterBinding.ensureInitialized();
-//     String path = join(documentsDirectory.path, "test.db");
-//     var theDb = await openDatabase(path, version: 1, onCreate: _onCreate);
-//     return theDb;
+//   // SQL code to create the database table
+//   Future _onCreate(Database db, int version) async {
+//     await db.execute('''
+//           CREATE TABLE $table (
+//             $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
+//             $columnTitle FLOAT NOT NULL
+//           )
+//           ''');
 //   }
 //
-//   void _onCreate(Database db, int version) async {
-//     // When creating the db, create the table
-//     await db.execute(
-//         "CREATE TABLE Employee(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT, mobileno TEXT,emailId TEXT )");
-//     print("Created tables");
+//   Future<int> insert(mealData todo) async {
+//     Database db = await instance.database;
+//     var res = await db.insert(table, todo.toMap());
+//     return res;
 //   }
 //
-//   void saveEmployee(Employee employee) async {
-//     var dbClient = await db;
-//     await dbClient.transaction((txn) async {
-//       return await txn.rawInsert(
-//           'INSERT INTO Employee(firstname, lastname, mobileno, emailid ) VALUES(' +
-//               '\'' +
-//               employee.firstName +
-//               '\'' +
-//               ',' +
-//               '\'' +
-//               employee.lastName +
-//               '\'' +
-//               ',' +
-//               '\'' +
-//               employee.mobileNo +
-//               '\'' +
-//               ',' +
-//               '\'' +
-//               employee.emailId +
-//               '\'' +
-//               ')');
-//     });
+//   Future<List<Map<String, dynamic>>> queryAllRows() async {
+//     Database db = await instance.database;
+//     var res = await db.query(table, orderBy: "$columnId DESC");
+//     return res;
 //   }
 //
-//   Future<List<Employee>> getEmployees() async {
-//     var dbClient = await db;
-//     List<Map> list = await dbClient.rawQuery('SELECT * FROM Employee');
-//     List<Employee> employees = new List();
-//     for (int i = 0; i < list.length; i++) {
-//       employees.add(new Employee(list[i]["firstname"], list[i]["lastname"], list[i]["mobileno"], list[i]["emailid"]));
-//     }
-//     print(employees.length);
-//     return employees;
+//   Future<int> delete(int id) async {
+//     Database db = await instance.database;
+//     return await db.delete(table, where: '$columnId = ?', whereArgs: [id]);
 //   }
+//
+//   // Future<void> clearTable() async {
+//   //   Database db = await instance.database;
+//   //   return await db.rawQuery("DELETE FROM $table");
+//   // }
 // }

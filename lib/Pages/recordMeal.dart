@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:inner_peace/Pages/main.dart';
+import 'package:inner_peace/main.dart';
 import 'package:inner_peace/mealData.dart';
 import 'package:inner_peace/Pages/navigationMenu.dart';
 import 'package:inner_peace/guiElements.dart';
 import 'package:inner_peace/Pages/recordSymptoms.dart';
+import 'package:inner_peace/databasing.dart';
+
 // ignore: camel_case_types
 class recordMeal extends StatelessWidget {
   //insertMeal insertMeal = new insertMeal();
@@ -11,7 +13,7 @@ class recordMeal extends StatelessWidget {
   final mealName = TextEditingController();
   final ingredients = TextEditingController();
   List<mealData> taskList = [];
-  int id = 0;
+  //int id = 0;
   String symptoms = "";
   final double width = 10.0;
   final double height = 20;
@@ -70,10 +72,10 @@ class recordMeal extends StatelessWidget {
                         text: 'Symptome hinzufügen',
                         onClick: () async {
                           //_submit;
-                          id ++;
+                          //id ++;
                           var ingredientsArray = ingredients.toString().split(',');
                           var meal = mealData(
-                              id: id,
+                              //id: id,
                               meal: mealName.toString(),
                               ingredients: ingredientsArray,
                               symptomTotal: 0,
@@ -81,8 +83,13 @@ class recordMeal extends StatelessWidget {
                               cramps: 0,
                               flatulence: 0,
                               bowel: 0);
+                          await NotesDatabase.instance.create(meal);
+                          //await dbHelper.instance;
+                          //await insertMeals(meal);
                           //var insertMeals = Main();
+                          //var insertmeals = dbHelper;
                           //await insertMeal(meal);
+                          //await insertMeals.insert(meal);
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               //toDo save inputs
