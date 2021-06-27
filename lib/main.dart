@@ -1,75 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:inner_peace/Pages/navigationMenu.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:inner_peace/mealData.dart';
-import 'dart:async';
 import 'package:flutter/widgets.dart';
 
 void main() async {
   runApp(MyApp());
-
-//   WidgetsFlutterBinding.ensureInitialized();
-//   final database = openDatabase(
-//     join(await getDatabasesPath(), 'innerPeace.db'),
-//     onCreate: (db, version) {
-//       return db.execute(
-//         'CREATE TABLE meal(id INTEGER PRIMARY KEY, meal TEXT, ingredients TEXT, symptomsTotal REAL, generalWellbeing REAL, cramps REAL, flatulence REAL, bowel REAL)',
-//       );
-//     },
-//     version: 1,
-//   );
-//
-//   //Fügt eine Mahlzeit hinzu
-//   Future<void> insertMeal(mealData meal) async {
-//     //call(mealData meal) async {
-//       final db = await database;
-//       await db.insert(
-//         'meals',
-//         meal.toMap(),
-//         conflictAlgorithm: ConflictAlgorithm.replace,
-//       );
-//     //}
-//   }
-//
-//   //holt alle Mahlzeiten von dessen Tabelle
-//   Future<List<mealData>> meals() async {
-//     final db = await database;
-//     final List<Map<String, dynamic>> maps = await db.query('meals');
-//     return List.generate(maps.length, (i) {
-//       return mealData(
-//           //id: maps[i]['id'],
-//           meal: maps[i]['meal'],
-//           ingredients: maps[i]['ingredients'],
-//           symptomTotal: maps[i]['symptomTotal'],
-//           generalWellbeing: maps[i]['generalWellbeing'],
-//           cramps: maps[i]['cramps'],
-//           flatulence: maps[i]['flatulence'],
-//           bowel: maps[i]['bowel'],
-//       );
-//     });
-//   }
-//
-//   //Aktualisiert einen Eintrag
-//   Future<void> updateMeal(mealData mealUpdate) async {
-//     final db = await database;
-//     await db.update(
-//       'meal',
-//       mealUpdate.toMap(),
-//       where: 'id = ?',
-//       whereArgs: [mealUpdate.meal],
-//     );
-//   }
-//
-//   //Löscht einen Eintrag
-//   Future<void> deleteMeal(int id) async {
-//     final db = await database;
-//     await db.delete(
-//       'meals',
-//       where: 'id = ?',
-//       whereArgs: [id],
-//     );
-//   }
 }
 
 class MyApp extends StatelessWidget {
@@ -88,20 +22,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //
-  //   DatabaseHelper.instance.queryAllRows().then((value) {
-  //     setState(() {
-  //       value.forEach((element) {
-  //         taskList.add(mealData(id: element['id'], gericht: element['gericht'], zutaten: element['zutaten'], symptomeTotal: element['symptome']));
-  //       });
-  //     });
-  //   }).catchError((error) {
-  //     print(error);
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) => Scaffold(

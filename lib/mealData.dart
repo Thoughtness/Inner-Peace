@@ -20,21 +20,21 @@ class mealData{
   int? id;
   String meal;
   List<String> ingredients;
-  double symptomTotal;
-  double generalWellbeing;
-  double cramps;
-  double flatulence;
-  double bowel;
+  double? symptomTotal;
+  double? generalWellbeing;
+  double? cramps;
+  double? flatulence;
+  double? bowel;
 
   mealData({
     this.id,
     required this.meal,
     required this.ingredients,
-    required this.symptomTotal,
-    required this.generalWellbeing,
-    required this.cramps,
-    required this.flatulence,
-    required this.bowel,
+    this.symptomTotal,
+    this.generalWellbeing,
+    this.cramps,
+    this.flatulence,
+    this.bowel,
   });
 
   mealData copy({
@@ -62,27 +62,12 @@ class mealData{
     id: json[NoteFields.id] as int?,
     meal: json[NoteFields.meal] as String,
     ingredients: json[NoteFields.ingredients] as List<String>,
-    symptomTotal: json[NoteFields.symptomTotal] as double,
-    generalWellbeing: json[NoteFields.generalWellbeing] as double,
-    cramps: json[NoteFields.cramps] as double,
-    flatulence:[NoteFields.flatulence] as double,
-    bowel:json[NoteFields.bowel] as double,
+    symptomTotal: json[NoteFields.symptomTotal] as double?,
+    generalWellbeing: json[NoteFields.generalWellbeing] as double?,
+    cramps: json[NoteFields.cramps] as double?,
+    flatulence:[NoteFields.flatulence] as double?,
+    bowel:json[NoteFields.bowel] as double?,
   );
-
-  // String get _meal => meal;
-
-  // Map<String, dynamic> toMap() {
-  //   return {
-  //     //'id' : id,
-  //     'meal': meal,
-  //     'ingredients': ingredients,
-  //     'symptomTotal': symptomTotal,
-  //     'generalWellbeing': generalWellbeing,
-  //     'cramps': cramps,
-  //     'flatulence': flatulence,
-  //     'bowel': bowel,
-  //   };
-  // }
 
   Map<String, Object?> toJson() => {
     NoteFields.id: id,
@@ -95,18 +80,4 @@ class mealData{
     NoteFields.bowel: bowel,
   };
 
-  // mealData.mapToObject(Map<String, dynamic> map){
-  //   this.meal = map['meal'];
-  //   this.ingredients = map['ingredients'];
-  //   this.symptomTotal = map['symptomTotal'];
-  //   this.generalWellbeing = map['generalWellbeing'];
-  //   this.cramps = map['cramps'];
-  //   this.flatulence = map['flatulence'];
-  //   this.bowel = map['bowel'];
-  // }
-
-  // @override
-  // String toString() {
-  //   return 'Mahlzeit{meal: $meal, ingredients: $ingredients. symptomTotal: $symptomTotal, generalWellbeing: $generalWellbeing, cramps: $cramps, flatulence: $flatulence, bowel: $bowel}';
-  // }
 }

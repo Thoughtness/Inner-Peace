@@ -35,7 +35,7 @@ CREATE TABLE $tableNotes (
   ${NoteFields.symptomTotal} $doubleType,
   ${NoteFields.generalWellbeing} $doubleType,
   ${NoteFields.cramps} $doubleType,
-  ${NoteFields.flatulence} $doubleType
+  ${NoteFields.flatulence} $doubleType,
   ${NoteFields.bowel} $doubleType
   )
 ''');

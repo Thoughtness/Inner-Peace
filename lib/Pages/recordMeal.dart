@@ -11,12 +11,29 @@ class recordMeal extends StatelessWidget {
   //insertMeal insertMeal = new insertMeal();
   //mealData meal = new mealData(id: 0, gericht: "", zutaten: );
   final mealName = TextEditingController();
-  final ingredients = TextEditingController();
+  final ingredientss = TextEditingController();
   List<mealData> taskList = [];
-  //int id = 0;
   String symptoms = "";
   final double width = 10.0;
   final double height = 20;
+
+  late String meal;
+  late List<String> ingredients;
+  late double symptomTotal;
+  late double generalWellbeing;
+  late double cramps;
+  late double flatulence;
+  late double bowel;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //
+  //   isImportant = widget.note?.isImportant ?? false;
+  //   number = widget.note?.number ?? 0;
+  //   title = widget.note?.title ?? '';
+  //   description = widget.note?.description ?? '';
+  // }
 
   final formKey = new GlobalKey<FormState>();
 
@@ -49,19 +66,6 @@ class recordMeal extends StatelessWidget {
                 description: 'Zutaten mit Komma trennen',
                 textController: ingredients,
               ),
-              // Expanded(
-              //   child: Container(
-              //     child: taskList.isEmpty
-              //         ? Container()
-              //         : ListView.builder(itemBuilder: (ctx, index) {
-              //             //if (index == taskList.length) return null;
-              //             return ListTile(
-              //               title: Text(taskList[index].gericht),
-              //               leading: Text(taskList[index].id.toString()),
-              //             );
-              //           }),
-              //   ),
-              // ),
               Flexible(
                 child: Row(
                   children: <Widget>[
@@ -70,26 +74,21 @@ class recordMeal extends StatelessWidget {
                       flex: 20,
                       child: customButton(
                         text: 'Symptome hinzufügen',
-                        onClick: () async {
+                        onClick: (){
+                          addNote();
                           //_submit;
                           //id ++;
-                          var ingredientsArray = ingredients.toString().split(',');
-                          var meal = mealData(
-                              //id: id,
-                              meal: mealName.toString(),
-                              ingredients: ingredientsArray,
-                              symptomTotal: 0,
-                              generalWellbeing: 0,
-                              cramps: 0,
-                              flatulence: 0,
-                              bowel: 0);
-                          await NotesDatabase.instance.create(meal);
-                          //await dbHelper.instance;
-                          //await insertMeals(meal);
-                          //var insertMeals = Main();
-                          //var insertmeals = dbHelper;
-                          //await insertMeal(meal);
-                          //await insertMeals.insert(meal);
+                          // var ingredientsArray = ingredientss.toString().split(',');
+                          // var meal = mealData(
+                          //     meal: mealName.toString(),
+                          //     ingredients: ingredientsArray,
+                          //     symptomTotal: 0,
+                          //     generalWellbeing: 0,
+                          //     cramps: 0,
+                          //     flatulence: 0,
+                          //     bowel: 0,
+                          // );
+                          // await NotesDatabase.instance.create(meal);
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               //toDo save inputs
@@ -104,15 +103,19 @@ class recordMeal extends StatelessWidget {
                       flex: 20,
                       child: customButton(
                         text: 'Mahlzeit speichern',
-                        onClick: () {
-                          // showDialog(
-                          //   context: context,
-                          //   builder: (context) {
-                          //     return AlertDialog(
-                          //       content: Text(textController.text),
-                          //     );
-                          //   },
+                        onClick: (){
+                          addNote();
+                          // var ingredientsArray = ingredientss.toString().split(',');
+                          // var meal = mealData(
+                          //     meal: mealName.toString(),
+                          //     ingredients: ingredientsArray,
+                          //     symptomTotal: 0,
+                          //     generalWellbeing: 0,
+                          //     cramps: 0,
+                          //     flatulence: 0,
+                          //     bowel: 0,
                           // );
+                          // await NotesDatabase.instance.create(meal);
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               //toDo save inputs
@@ -131,17 +134,18 @@ class recordMeal extends StatelessWidget {
           ),
         ),
       );
-  //
-  // void _submit() {
-  //   if (this.formKey.currentState!.validate()) {
-  //     formKey.currentState!.save();
-  //   }else{
-  //     return null;
-  //   }
-  //   var employee = mealData(firstname,lastname,mobileno,emailId);
-  //   var dbHelper = DBHelper();
-  //   dbHelper.saveEmployee(employee);
-  //   _showSnackBar("Data saved successfully");
-  // }
 
+  Future addNote() async {
+    final note = mealData(
+      meal: meal,
+      ingredients: ingredients,
+      symptomTotal: symptomTotal,
+      generalWellbeing: generalWellbeing,
+      cramps: cramps,
+      flatulence: flatulence,
+      bowel: bowel,
+    );
+
+    await NotesDatabase.instance.create(note);
+  }
 }
