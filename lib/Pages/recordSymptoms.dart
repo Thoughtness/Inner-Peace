@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:inner_peace/navigationMenu.dart';
+import 'package:inner_peace/Pages/navigationMenu.dart';
 import 'package:inner_peace/guiElements.dart';
-
-class symptomeErfassen extends StatelessWidget {
+// ignore: camel_case_types
+class recordSymptoms extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         endDrawer: menu(),

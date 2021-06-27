@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
+// ignore: camel_case_types
 class customRow extends StatelessWidget {
   final textController;
-  String description = "";
-  String title = "";
+  final String description;
+  final String title;
 
 
   customRow({
@@ -56,7 +56,7 @@ class customRow extends StatelessWidget {
     );
   }
 }
-
+// ignore: camel_case_types
 class customButton extends StatelessWidget {
   final VoidCallback onClick;
   final String text;
@@ -85,11 +85,11 @@ class customButton extends StatelessWidget {
     );
   }
 }
-
+// ignore: camel_case_types
 class customSlider extends StatefulWidget {
-  String title = "";
-  String good;
-  String bad;
+  final String title;
+  final String good;
+  final String bad;
 
   customSlider({
     required this.title,
@@ -102,7 +102,7 @@ class customSlider extends StatefulWidget {
     return _customSlider(title: title, good: good, bad: bad);
   }
 }
-
+// ignore: camel_case_types
 class _customSlider extends State<customSlider> {
   String title = "";
   double height = 15.0;

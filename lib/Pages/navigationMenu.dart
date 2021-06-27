@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:inner_peace/recordedMeals.dart';
-import 'package:inner_peace/infos.dart';
-import 'package:inner_peace/recordMeal.dart';
-import 'package:inner_peace/recordedSymptoms.dart';
-import 'package:inner_peace/intolerances.dart';
-
+import 'package:inner_peace/Pages/recordedMeals.dart';
+import 'package:inner_peace/Pages/infos.dart';
+import 'package:inner_peace/Pages/recordMeal.dart';
+import 'package:inner_peace/Pages/pickMealForSymptoms.dart';
+import 'package:inner_peace/Pages/intolerances.dart';
+// ignore: camel_case_types
 class menu extends StatelessWidget {
   @override
   Widget build(BuildContext context){
@@ -42,7 +42,7 @@ class menu extends StatelessWidget {
                   title: Text('Symptome erfassen'),
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => symptomeErfassen(),
+                        builder: (context) => pickMealForSymptoms(),
                       ));
                     }
                 ),
@@ -62,7 +62,7 @@ class menu extends StatelessWidget {
                   title: Text('Infos'),
                     onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => infos(),
+                        builder: (context) => info(),
                       ));
                     }
                 ),

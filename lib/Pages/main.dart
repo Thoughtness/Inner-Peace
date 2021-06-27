@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inner_peace/navigationMenu.dart';
+import 'package:inner_peace/Pages/navigationMenu.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:inner_peace/mealData.dart';
@@ -22,12 +22,14 @@ void main() async {
 
   //Fügt eine Mahlzeit hinzu
   Future<void> insertMeal(mealData meal) async {
-    final db = await database;
-    await db.insert(
-      'meals',
-      meal.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    //call(mealData meal) async {
+      final db = await database;
+      await db.insert(
+        'meals',
+        meal.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    //}
   }
 
   //holt alle Mahlzeiten von dessen Tabelle
@@ -37,21 +39,25 @@ void main() async {
     return List.generate(maps.length, (i) {
       return mealData(
           id: maps[i]['id'],
-          gericht: maps[i]['gericht'],
-          zutaten: maps[i]['zutaten'],
-          //symptomeTotal: maps[i]['symptome']
+          meal: maps[i]['meal'],
+          ingredients: maps[i]['ingredients'],
+          symptomTotal: maps[i]['symptomTotal'],
+          generalWellbeing: maps[i]['generalWellbeing'],
+          cramps: maps[i]['cramps'],
+          flatulence: maps[i]['flatulence'],
+          bowel: maps[i]['bowel'],
       );
     });
   }
 
   //Aktualisiert einen Eintrag
-  Future<void> updateMeal(mealData meal) async {
+  Future<void> updateMeal(mealData mealUpdate) async {
     final db = await database;
     await db.update(
       'meal',
-      meal.toMap(),
+      mealUpdate.toMap(),
       where: 'id = ?',
-      whereArgs: [meal.gericht],
+      whereArgs: [mealUpdate.meal],
     );
   }
 

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:inner_peace/main.dart';
+import 'package:inner_peace/Pages/main.dart';
 import 'package:inner_peace/mealData.dart';
-import 'package:inner_peace/navigationMenu.dart';
+import 'package:inner_peace/Pages/navigationMenu.dart';
 import 'package:inner_peace/guiElements.dart';
-import 'package:inner_peace/recordedSymptoms.dart';
-
+import 'package:inner_peace/Pages/recordSymptoms.dart';
+// ignore: camel_case_types
 class recordMeal extends StatelessWidget {
-
-  mealData meal = new mealData(id: 0, gericht: "", zutaten: "" );
+  //insertMeal insertMeal = new insertMeal();
+  //mealData meal = new mealData(id: 0, gericht: "", zutaten: );
   final mealName = TextEditingController();
   final ingredients = TextEditingController();
   List<mealData> taskList = [];
   int id = 0;
   String symptoms = "";
-  double width = 10.0;
-  double height = 20;
+  final double width = 10.0;
+  final double height = 20;
 
   final formKey = new GlobalKey<FormState>();
 
@@ -68,14 +68,25 @@ class recordMeal extends StatelessWidget {
                       flex: 20,
                       child: customButton(
                         text: 'Symptome hinzufügen',
-                        onClick: () {
+                        onClick: () async {
                           //_submit;
                           id ++;
-                          mealData(id: id, gericht: mealName.toString(), zutaten: ingredients.toString());
+                          var ingredientsArray = ingredients.toString().split(',');
+                          var meal = mealData(
+                              id: id,
+                              meal: mealName.toString(),
+                              ingredients: ingredientsArray,
+                              symptomTotal: 0,
+                              generalWellbeing: 0,
+                              cramps: 0,
+                              flatulence: 0,
+                              bowel: 0);
+                          //var insertMeals = Main();
+                          //await insertMeal(meal);
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               //toDo save inputs
-                              builder: (context) => symptomeErfassen(),
+                              builder: (context) => recordSymptoms(),
                             ),
                           );
                         },
